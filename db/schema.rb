@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_20_054612) do
-  create_table "users", charset: "utf8", force: :cascade do |t|
-=======
 ActiveRecord::Schema[7.0].define(version: 2023_07_20_061413) do
-  create_table "prototypes", charset: "utf8mb4", force: :cascade do |t|
+  create_table "prototypes", charset: "utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "catch_copy", null: false
     t.text "concept", null: false
@@ -24,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_061413) do
     t.index ["user_id"], name: "index_prototypes_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password", null: false
     t.string "name", null: false
