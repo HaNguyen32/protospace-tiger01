@@ -9,17 +9,17 @@ class PrototypesController < ApplicationController
     end
 
     def create
-        @prototype = prototypes.new(prototype_params)
+        @prototype = Prototype.new(prototype_params)
         if @prototype.save
             redirect_to root_path
         else
-        redirect_to new_prototype_path
+            render :new
         end
     end
 
     private
     def prototype_params
-        params.require(:prototype).permit(:name, :catch_copy, :concept, :image)
+        params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
     end
     def move_to_index
         unless user_signed_in?
