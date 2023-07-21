@@ -5,8 +5,10 @@ class PrototypesController < ApplicationController
     end
 
     def show
-        @Prototype = Prototype.find(params[:id])
-      end
+        @comment = Comment.new
+        @comments = @prototype.comments.includes(:user)
+        #@Prototype = Prototype.find(params[:id])
+    end
 
     def new
         @prototype = Prototype.new
