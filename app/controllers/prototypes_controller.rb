@@ -4,6 +4,10 @@ class PrototypesController < ApplicationController
         @prototypes = Prototype.all
     end
 
+    def show
+        @Prototype = Prototype.find(params[:id])
+      end
+
     def new
         @prototype = Prototype.new
     end
@@ -26,6 +30,4 @@ class PrototypesController < ApplicationController
             redirect_to new_user_session_path
         end
     end
-
-
 end
