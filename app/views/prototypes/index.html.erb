@@ -7,9 +7,10 @@
       </div>
     <% end %>
     <div class="card__wrapper">
-      <% @prototypes.each do |prototype| %>
-      <%= render partial: "prototype", local: { prototype: prototype }%>
-      <% end %>
+      <%# @prototypes.each do |prototype| %>
+      <%#= render partial: "prototypes/prototype", locals: { prototype: prototype } %>
+      <%# end %>
+      <%= render partial: 'prototype', collection: @prototypes %>
       <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
     </div>
   </div>
