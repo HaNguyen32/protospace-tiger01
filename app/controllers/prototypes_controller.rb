@@ -21,7 +21,11 @@ class PrototypesController < ApplicationController
         end
     end
 
-    private
+    def edit
+        @prototype = Prototype.find(params[:id])
+    end
+
+        private
     def prototype_params
         params.require(:prototype).permit(:name, :catch_copy, :concept, :image)
     end
