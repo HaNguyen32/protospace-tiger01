@@ -40,8 +40,6 @@
             </div>
           <% end %>
         <% end %>
-        <%# // ログインしているユーザーには上記を表示する %>
-        <ul class="comments_lists">
           <% @comments.each do |comment| %>
             <li class="comments_list">
               <%#= comment.text %>
@@ -49,7 +47,6 @@
               <%= link_to "（#{comment.user.name}）", user_path(comment.user), class: :comment_user %>
             </li>
           <% end %>
-        </ul>
       </div>
     </div>
   </div>
