@@ -1,5 +1,6 @@
 class PrototypesController < ApplicationController
-    before_action :move_to_index, except: [:index]
+    before_action :move_to_index, except: [:index,]
+    
     def index
         @prototypes = Prototype.all
     end
@@ -23,9 +24,13 @@ class PrototypesController < ApplicationController
         end
     end
     def destroy
-        prototype = Prototype.find(params[:id])
-        prototype.destroy
-        redirect_to root_path
+        @prototype = Prototype.find(params[:id])
+        if @prototype.user == current_user
+            @prototype.destroy
+            redirect_to root_path
+        else
+            redirect_to root_path
+        end
     end
 
     private
