@@ -1,5 +1,7 @@
 class PrototypesController < ApplicationController
-    before_action :move_to_index, except: [:index,]
+    before_action :set_prototype, only: [:edit, :show]
+    before_action :move_to_sign_in, except: [:index, :show, :edit]
+    before_action :move_to_index, only: [:edit]
     def index
         @prototypes = Prototype.all
     end
