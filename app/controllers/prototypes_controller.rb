@@ -44,17 +44,7 @@ class PrototypesController < ApplicationController
             render :edit
         end
     end
-    def edit
-    end
-    def update
-        prototype = Prototype.find(params[:id])
-        prototype.update(prototype_params)
-        if prototype.save
-            redirect_to prototype_path(params[:id])
-        else
-            render :edit
-        end
-    end
+
     private
     def prototype_params
         params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
